@@ -1,10 +1,23 @@
-import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Protector } from "./helpers";
+import Home from "./components/Home";
+import Login from "./components/Login";
+import { Container } from "reactstrap";
+import Logout from "./components/Logout";
+import Registration from "./components/Registration";
 
 function App() {
   return (
-    <div className="App">
-      <h1>Full stack login</h1>
-    </div>
+    <Container>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Protector Component={Home} />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Registration />} />
+          <Route path="/logout" element={<Logout />} />
+        </Routes>
+      </BrowserRouter>
+    </Container>
   );
 }
 
