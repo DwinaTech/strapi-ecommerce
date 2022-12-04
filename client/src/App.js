@@ -5,6 +5,7 @@ import Login from "./components/Login";
 import { Container } from "reactstrap";
 import Logout from "./components/Logout";
 import Registration from "./components/Registration";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/register" element={<Registration />} />
           <Route path="/logout" element={<Logout />} />
         </Routes>
+        <ToastContainer />
       </BrowserRouter>
     </Container>
   );

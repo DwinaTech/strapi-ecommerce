@@ -1,7 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Logout = () => {
-  return <div>Logout</div>;
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    localStorage.setItem("user", "");
+    navigate("/login");
+  }, [navigate]);
+
+  return null;
 };
 
 export default Logout;
