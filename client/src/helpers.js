@@ -12,8 +12,8 @@ export const storeUser = (data) => {
 };
 
 export const userData = () => {
-  const stringifiedUser = localStorage.getItem("user");
-  return JSON.parse(stringifiedUser);
+  const stringifiedUser = localStorage.getItem("user") || '""';
+  return JSON.parse(stringifiedUser || {});
 };
 
 export const Protector = ({ Component }) => {
