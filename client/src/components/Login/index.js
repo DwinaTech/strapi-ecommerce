@@ -1,15 +1,11 @@
 import React, { useState } from "react";
+import { Col, Row, Button, FormGroup, Input } from "reactstrap";
 import axios from "axios";
-import { Link } from "react-router-dom";
-import { Row, Col, Button, FormGroup, Input } from "reactstrap";
-import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { Link, useNavigate } from "react-router-dom";
 import { storeUser } from "../../helpers";
 
-const initialUser = {
-  password: "",
-  identifier: "",
-};
+const initialUser = { password: "", identifier: "" };
 
 const Login = () => {
   const [user, setUser] = useState(initialUser);
@@ -24,13 +20,10 @@ const Login = () => {
   };
 
   const handleLogin = async () => {
+    const url = `http://localhost:1337/api/auth/local`;
     try {
       if (user.identifier && user.password) {
-        console.log({ user });
-        const { data } = await axios.post(
-          `${process.env.REACT_APP_BASE_URL}/api/auth/local`,
-          user
-        );
+        const { data } = await axios.post(url, user);
         if (data.jwt) {
           storeUser(data);
           toast.success("Logged in successfully!", {
@@ -74,7 +67,7 @@ const Login = () => {
             Login
           </Button>
           <h6>
-            Click <Link to="/register">Here</Link> to sign up
+            Click <Link to="/registration">Here</Link> to sign up
           </h6>
         </div>
       </Col>

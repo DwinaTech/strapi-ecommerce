@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 export const storeUser = (data) => {
@@ -18,14 +18,14 @@ export const userData = () => {
 
 export const Protector = ({ Component }) => {
   const navigate = useNavigate();
-  const loggedIn = false;
 
   const { jwt } = userData();
+
   useEffect(() => {
     if (!jwt) {
       navigate("/login");
     }
-  }, [loggedIn, navigate, jwt]);
+  }, [navigate, jwt]);
 
   return <Component />;
 };

@@ -1,26 +1,19 @@
-import React, { useState } from "react";
 import axios from "axios";
-import { Row, Col, Button, FormGroup, Input } from "reactstrap";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { Col, Row, Button, FormGroup, Input } from "reactstrap";
 
-const initialUser = {
-  email: "",
-  username: "",
-  password: "",
-};
-
+const initialUser = { email: "", password: "", username: "" };
 const Registration = () => {
   const [user, setUser] = useState(initialUser);
   const navigate = useNavigate();
 
   const signUp = async () => {
     try {
+      const url = `http://localhost:1337/api/auth/local/register`;
       if (user.username && user.email && user.password) {
-        const res = await axios.post(
-          `${process.env.REACT_APP_BASE_URL}/api/auth/local/register`,
-          user
-        );
+        const res = await axios.post(url, user);
         if (!!res) {
           toast.success("Registered successfully!", {
             hideProgressBar: true,
@@ -28,7 +21,6 @@ const Registration = () => {
           setUser(initialUser);
           navigate("/login");
         }
-        console.log({ res });
       }
     } catch (error) {
       toast.error(error.message, {
@@ -77,7 +69,7 @@ const Registration = () => {
               placeholder="Enter password"
             />
           </FormGroup>
-          <Button onClick={signUp} color="primary">
+          <Button color="primary" onClick={signUp}>
             Sign up
           </Button>
         </div>

@@ -1,11 +1,11 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Protector } from "./helpers";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./components/Home";
-import Login from "./components/Login";
 import { Container } from "reactstrap";
-import Logout from "./components/Logout";
+import Login from "./components/Login";
 import Registration from "./components/Registration";
+import Logout from "./components/Logout";
 import { ToastContainer } from "react-toastify";
+import { Protector } from "./helpers";
 
 function App() {
   return (
@@ -14,8 +14,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Protector Component={Home} />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Registration />} />
           <Route path="/logout" element={<Logout />} />
+          <Route path="/registration" element={<Registration />} />
         </Routes>
         <ToastContainer />
       </BrowserRouter>

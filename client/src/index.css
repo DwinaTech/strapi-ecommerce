@@ -18,8 +18,7 @@ code {
 .custom-nav .collapse {
   justify-content: flex-end;
 }
-
-/* End nav */
+/* End Nav */
 
 /* Home */
 .home {
@@ -27,6 +26,7 @@ code {
 }
 
 /* End home */
+
 /* Login */
 .login {
   min-height: 100vh;
@@ -45,7 +45,7 @@ code {
 
 /* End Login */
 
-/* Start register */
+/* Register */
 .register {
   min-height: 100vh;
   align-items: center;
