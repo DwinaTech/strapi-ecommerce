@@ -25,6 +25,21 @@ code {
   margin-top: 30px;
 }
 
+.home > h2 {
+  margin-bottom: 20px;
+}
+
+.home .category {
+  margin-bottom: 20px;
+}
+
+.home .category-title {
+  margin: 10px 0;
+  padding: 40px;
+  background: #736262;
+  border-radius: 9px;
+}
+
 /* End home */
 
 /* Login */
@@ -57,3 +72,16 @@ code {
   );
 }
 /* End register */
+
+/* Product */
+.product-card {
+  color: #020024;
+}
+
+.product-card .card-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* End product */

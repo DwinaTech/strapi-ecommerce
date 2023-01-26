@@ -8,10 +8,13 @@ import {
   NavItem,
   NavLink,
 } from "reactstrap";
+import { userData } from "../../helpers";
 
 const CustomNav = () => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
+  const { jwt } = userData();
+  const isLoggedIn = !!jwt;
 
   return (
     <div className="custom-nav">
@@ -22,9 +25,15 @@ const CustomNav = () => {
         <NavbarToggler onClick={toggle} className="mr-2" />
         <Collapse isOpen={isOpen} navbar>
           <Nav navbar>
-            <NavItem>
-              <NavLink href="/logout">Logout</NavLink>
-            </NavItem>
+            {isLoggedIn ? (
+              <NavItem>
+                <NavLink href="/logout">Logout</NavLink>
+              </NavItem>
+            ) : (
+              <NavItem>
+                <NavLink href="/login">Login</NavLink>
+              </NavItem>
+            )}
           </Nav>
         </Collapse>
       </Navbar>
