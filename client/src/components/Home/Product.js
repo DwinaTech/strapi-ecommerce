@@ -3,9 +3,7 @@ import React from "react";
 import { Card, CardImg, CardBody, CardTitle, CardSubtitle } from "reactstrap";
 
 const Product = ({ product }) => {
-  console.log({ product });
   const image = product.attributes.images.data[0].attributes;
-  console.log({ image });
 
   return (
     <Card className="product-card">
