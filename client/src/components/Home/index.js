@@ -1,15 +1,14 @@
 import React from "react";
 import Product from "./Product";
-import CustomNav from "../CustomNav";
 import { Row, Col } from "reactstrap";
 import { useProducts } from "./useProducts";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const { categories, products } = useProducts();
 
   return (
     <div>
-      <CustomNav />
       <div className="home">
         <h2 style={{ textAlign: "center" }}>Enjoy our sales!</h2>
         {categories.length &&
@@ -23,7 +22,9 @@ const Home = () => {
                 <Row key={category.id} className="category">
                   {hasProducts.map((product) => (
                     <Col sm="12" md="4" key={product.id}>
-                      <Product product={product} />
+                      <Link to={`/product-details/${product.id}`}>
+                        <Product product={product} />
+                      </Link>
                     </Col>
                   ))}
                 </Row>

@@ -22,7 +22,7 @@
     "quantity": {
       "type": "biginteger"
     },
-    "descripition": {
+    "description": {
       "type": "text"
     },
     "sizes": {
