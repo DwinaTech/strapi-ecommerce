@@ -1,0 +1,143 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #020024;
+  color: #ddd;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+/* Nav */
+.custom-nav .collapse {
+  justify-content: flex-end;
+}
+/* End Nav */
+
+/* Home */
+.home {
+  margin-top: 30px;
+}
+
+.home > h2 {
+  margin-bottom: 20px;
+}
+
+.home .category {
+  margin-bottom: 20px;
+}
+
+.home .category-title {
+  margin: 10px 0;
+  padding: 40px;
+  background: #736262;
+  border-radius: 9px;
+}
+
+/* End home */
+
+/* Login */
+.login {
+  min-height: 100vh;
+  align-items: center;
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 20%,
+    rgba(27, 146, 196, 1) 56%,
+    rgba(2, 0, 36, 1) 73%
+  );
+}
+
+.login h6 {
+  margin-top: 15px;
+}
+
+/* End Login */
+
+/* Register */
+.register {
+  min-height: 100vh;
+  align-items: center;
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 20%,
+    rgba(27, 146, 196, 1) 56%,
+    rgba(2, 0, 36, 1) 73%
+  );
+}
+/* End register */
+
+/* Product */
+.product-card {
+  color: #020024;
+}
+
+.product-card .card-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* End product */
+
+/* Product details */
+.product-details {
+  margin-top: 20px;
+  background-color: transparent;
+}
+
+.product-details .card-subtitle {
+  margin-bottom: 10px;
+}
+
+.product-details .sizes {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+}
+
+.product-details .sizes span {
+  margin-right: 10px;
+  border-radius: 100%;
+  display: flex;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.product-details .sizes .active {
+  color: #000;
+  background-color: #ddd;
+}
+
+.product-details .colours {
+  margin-bottom: 10px;
+}
+
+.product-details .colours span {
+  margin-right: 10px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.product-details .colours span img {
+  width: 55px;
+  max-height: 55px;
+  padding: 10px;
+  border-radius: 100%;
+  background-color: #ffffff;
+}
+
+.product-details .quantity {
+  max-width: 200px;
+}
+/* End */
