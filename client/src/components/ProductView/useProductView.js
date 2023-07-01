@@ -19,7 +19,7 @@ export const useProductView = () => {
       image.attributes.name.includes(colour)
     );
 
-    return image.attributes.url || "";
+    return image?.attributes?.url || "";
   };
 
   useEffect(() => {

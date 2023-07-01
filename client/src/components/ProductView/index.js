@@ -34,17 +34,19 @@ const ProductView = () => {
   const quantity = Array.from(Array(Number(attributes.quantity)).keys());
 
   return (
-    <Card className="product-details">
+    <div className="product-details">
       <Row>
-        <Col sm="12" md="4">
-          <CardImg
-            left="true"
-            width="100%"
-            src={`http://localhost:1337${getImage(selectedColor)}`}
-            alt=""
-          />
+        <Col sm="12" md="6">
+          <div className="image-wrapper">
+            <CardImg
+              left="true"
+              width="100%"
+              src={`http://localhost:1337${getImage(selectedColor)}`}
+              alt=""
+            />
+          </div>
         </Col>
-        <Col sm="12" md="8">
+        <Col sm="12" md="6">
           <CardBody>
             <CardTitle>{attributes.name}</CardTitle>
             <CardText>{attributes.description}</CardText>
@@ -103,7 +105,7 @@ const ProductView = () => {
           </CardBody>
         </Col>
       </Row>
-    </Card>
+    </div>
   );
 };
 
