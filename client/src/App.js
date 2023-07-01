@@ -10,19 +10,21 @@ import ProductView from "./components/ProductView";
 
 function App() {
   return (
-    <Container>
+    <div>
       <CustomNav />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/logout" element={<Logout />} />
-          <Route path="/product-details/:id" element={<ProductView />} />
-          <Route path="/registration" element={<Registration />} />
-        </Routes>
-        <ToastContainer />
-      </BrowserRouter>
-    </Container>
+      <Container>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/logout" element={<Logout />} />
+            <Route path="/product-details/:id" element={<ProductView />} />
+            <Route path="/registration" element={<Registration />} />
+          </Routes>
+          <ToastContainer />
+        </BrowserRouter>
+      </Container>
+    </div>
   );
 }
 

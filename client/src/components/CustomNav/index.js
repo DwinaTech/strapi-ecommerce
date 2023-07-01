@@ -18,9 +18,9 @@ const CustomNav = () => {
 
   return (
     <div className="custom-nav">
-      <Navbar color="light" light expand="md">
+      <Navbar color="light" light expand="md" container>
         <NavbarBrand href="/" className="mr-auto">
-          Stapi App
+          Stapi E-commerce
         </NavbarBrand>
         <NavbarToggler onClick={toggle} className="mr-2" />
         <Collapse isOpen={isOpen} navbar>
