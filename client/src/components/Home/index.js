@@ -15,31 +15,35 @@ const Home = () => {
     <div>
       <div className="home">
         <h2 style={{ textAlign: "center" }}>Enjoy our sales!</h2>
-        {categories.length &&
-          categories.map((category) => {
-            const hasProducts = products.filter(
-              (product) => product.attributes.category.data?.id === category?.id
-            );
-            return hasProducts && hasProducts.length ? (
-              <>
-                <h2 className="category-title">{category.attributes.name}</h2>
-                <Row key={category.id} className="category">
-                  {hasProducts.map((product) => (
-                    <Col
-                      sm="12"
-                      md="3"
-                      key={product.id}
-                      onClick={() =>
-                        navigateToProductView(`/product-details/${product.id}`)
-                      }
-                    >
-                      <Product product={product} />
-                    </Col>
-                  ))}
-                </Row>
-              </>
-            ) : null;
-          })}
+        {categories.length
+          ? categories.map((category) => {
+              const hasProducts = products.filter(
+                (product) =>
+                  product.attributes.category.data?.id === category?.id
+              );
+              return hasProducts && hasProducts.length ? (
+                <>
+                  <h2 className="category-title">{category.attributes.name}</h2>
+                  <Row key={category.id} className="category">
+                    {hasProducts.map((product) => (
+                      <Col
+                        sm="12"
+                        md="3"
+                        key={product.id}
+                        onClick={() =>
+                          navigateToProductView(
+                            `/product-details/${product.id}`
+                          )
+                        }
+                      >
+                        <Product product={product} />
+                      </Col>
+                    ))}
+                  </Row>
+                </>
+              ) : null;
+            })
+          : null}
       </div>
     </div>
   );
