@@ -7,6 +7,7 @@ const Logout = () => {
   useEffect(() => {
     localStorage.setItem("user", "");
     navigate("/login");
+    window.location.reload();
   }, [navigate]);
 
   return null;

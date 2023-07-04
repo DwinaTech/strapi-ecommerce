@@ -14,6 +14,11 @@ code {
 }
 
 /* Nav */
+.custom-nav,
+.navbar-brand {
+  font-size: 24px;
+}
+
 .custom-nav .collapse {
   justify-content: flex-end;
 }
@@ -173,4 +178,79 @@ code {
 .product-details .quantity {
   max-width: 200px;
 }
+/* End */
+
+/* Basket */
+.basket {
+  margin: 20px 0;
+}
+
+.basket h3 {
+  font-weight: normal;
+  margin-bottom: 15px;
+}
+
+.basket-icon-wrapper {
+  width: 46px;
+  position: relative;
+}
+
+.basket-icon {
+  color: #ffff00;
+  color: #000000;
+  font-size: 24px;
+}
+
+.basket-items {
+  top: 0;
+  right: 0;
+  width: 24px;
+  height: 24px;
+  padding: 5px;
+  color: #000;
+  display: flex;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 50%;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  background-color: #f49746;
+}
+
+.basket .card {
+  margin-bottom: 15px;
+}
+
+.basket .card .size,
+.basket .card .quantity {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.basket .card .size select,
+.basket .card .quantity select {
+  max-width: 85px;
+}
+
+.basket .card label {
+  margin-right: 5px;
+}
+
+.basket button {
+  margin-top: 15px;
+}
+
+.empty-basket {
+  display: flex;
+  margin-top: 45px;
+  align-items: center;
+  flex-direction: column;
+}
+
+.empty-basket button {
+  margin-top: 15px;
+}
+
 /* End */

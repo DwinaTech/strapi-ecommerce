@@ -1,9 +1,18 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
+
+const getQuery = (key, search) => {
+  const querys = search?.replace("?", "")?.split("&");
+  const query = querys.find((query) => query.includes(key));
+  const queryValue = query?.replace(`${key}=`, "");
+  return queryValue;
+};
 
 export const useProductView = () => {
   const { id: productId } = useParams();
+  const { search } = useLocation();
+
   const [product, setProduct] = useState({});
   const [selectedColor, setSelectedColor] = useState("");
   const [selectedSize, setSelectedSize] = useState("");
@@ -25,10 +34,10 @@ export const useProductView = () => {
   useEffect(() => {
     if (product && product.attributes) {
       const { attributes } = product;
-      setSelectedColor(attributes.colours[0].name);
-      setSelectedSize(attributes.sizes[0].name);
+      setSelectedColor(getQuery("color", search) || attributes.colours[0].name);
+      setSelectedSize(getQuery("size", search) || attributes.sizes[0].name);
     }
-  }, [product, setSelectedColor, setSelectedSize]);
+  }, [product, search, setSelectedColor, setSelectedSize]);
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -38,7 +47,6 @@ export const useProductView = () => {
         } = await axios.get(
           `http://localhost:1337/api/products/${productId}?populate=*`
         );
-        console.log(data);
         setProduct(data);
       } catch (error) {
         console.log({ error });

@@ -8,30 +8,38 @@ import {
   NavItem,
   NavLink,
 } from "reactstrap";
-import { userData } from "../../helpers";
-
-const CustomNav = () => {
+import { Link } from "react-router-dom";
+import { FaShoppingBasket } from "react-icons/fa";
+const CustomNav = ({ basketItems, isLoggedIn }) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
-  const { jwt } = userData();
-  const isLoggedIn = !!jwt;
 
   return (
     <div className="custom-nav">
       <Navbar color="light" light expand="md" container>
-        <NavbarBrand href="/" className="mr-auto">
+        <NavbarBrand tag={Link} to="/" className="mr-auto">
           Stapi E-commerce
         </NavbarBrand>
         <NavbarToggler onClick={toggle} className="mr-2" />
         <Collapse isOpen={isOpen} navbar>
           <Nav navbar>
+            <NavItem>
+              <NavLink tag={Link} to="/basket" className="basket-icon-wrapper">
+                <span className="basket-items">{basketItems}</span>
+                <FaShoppingBasket className="basket-icon" />
+              </NavLink>
+            </NavItem>
             {isLoggedIn ? (
               <NavItem>
-                <NavLink href="/logout">Logout</NavLink>
+                <NavLink tag={Link} to="/logout">
+                  Logout
+                </NavLink>
               </NavItem>
             ) : (
               <NavItem>
-                <NavLink href="/login">Login</NavLink>
+                <NavLink tag={Link} to="/login">
+                  Login
+                </NavLink>
               </NavItem>
             )}
           </Nav>

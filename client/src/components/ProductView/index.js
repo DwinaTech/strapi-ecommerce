@@ -3,7 +3,6 @@ import { useProductView } from "./useProductView";
 import {
   Row,
   Col,
-  Card,
   Label,
   Input,
   Button,
@@ -15,10 +14,11 @@ import {
   CardSubtitle,
 } from "reactstrap";
 
-const ProductView = () => {
+const ProductView = ({ addToBasket }) => {
   const {
     product,
     getImage,
+    description,
     selectedColor,
     selectedSize,
     selectedQuantity,
@@ -30,7 +30,6 @@ const ProductView = () => {
     return null;
   }
   const { attributes } = product;
-
   const quantity = Array.from(Array(Number(attributes.quantity)).keys());
 
   return (
@@ -101,7 +100,21 @@ const ProductView = () => {
                 </Input>
               </FormGroup>
             </div>
-            <Button color="primary">Add to basket</Button>
+            <Button
+              color="primary"
+              onClick={() =>
+                addToBasket({
+                  ...product,
+                  description,
+                  size: selectedSize,
+                  color: selectedColor,
+                  quantity: selectedQuantity,
+                  imageUrl: getImage(selectedColor),
+                })
+              }
+            >
+              Add to basket
+            </Button>
           </CardBody>
         </Col>
       </Row>

@@ -31,6 +31,7 @@ const Login = () => {
           });
           setUser(initialUser);
           navigate("/");
+          window.location.reload();
         }
       }
     } catch (error) {

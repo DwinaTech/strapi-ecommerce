@@ -22,7 +22,7 @@ const Home = () => {
                   product.attributes.category.data?.id === category?.id
               );
               return hasProducts && hasProducts.length ? (
-                <>
+                <div key={category.id}>
                   <h2 className="category-title">{category.attributes.name}</h2>
                   <Row key={category.id} className="category">
                     {hasProducts.map((product) => (
@@ -40,7 +40,7 @@ const Home = () => {
                       </Col>
                     ))}
                   </Row>
-                </>
+                </div>
               ) : null;
             })
           : null}
