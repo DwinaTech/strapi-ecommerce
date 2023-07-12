@@ -36,9 +36,16 @@ module.exports = createCoreController("api::basket.basket", ({ strapi }) => ({
   },
   async delete(ctx) {
     const { email } = ctx.state.user;
+    const { id } = ctx.params;
     try {
-      const res = await strapi.db.query("api::basket.basket").deleteMany({
-        where: { userEmail: email },
+      if (id === "fakeId") {
+        const res = await strapi.db.query("api::basket.basket").deleteMany({
+          where: { userEmail: email },
+        });
+        return res;
+      }
+      const res = await strapi.db.query("api::basket.basket").delete({
+        where: { id },
       });
       return res;
     } catch (error) {

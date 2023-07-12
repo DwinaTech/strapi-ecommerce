@@ -159,17 +159,22 @@ const useBasket = (token) => {
   }) => {
     try {
       if (!!token) {
-        await axios.put(`http://localhost:1337/api/baskets/${basketItemId}`, {
-          data: {
-            color,
-            size,
-            imageUrl,
-            quantity: Number(quantity),
+        await axios.put(
+          `http://localhost:1337/api/baskets/${basketItemId}`,
+          {
+            data: {
+              color,
+              size,
+              imageUrl,
+              quantity: Number(quantity),
+            },
           },
-          headers: {
-            Authorization: `bearer ${token}`,
-          },
-        });
+          {
+            headers: {
+              Authorization: `bearer ${token}`,
+            },
+          }
+        );
         setUpdateBasket(true);
       } else {
         const updatedBasket = basket.map((item, idx) => {

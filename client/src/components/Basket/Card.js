@@ -13,6 +13,7 @@ import {
 } from "reactstrap";
 
 const CustomCard = ({
+  id,
   name,
   price,
   color,
@@ -23,7 +24,6 @@ const CustomCard = ({
   imageUrl,
   productId,
   quantities,
-  basketItemId,
   removeFromBasket,
   updateBasketItem,
 }) => {
@@ -53,7 +53,7 @@ const CustomCard = ({
               onChange={({ target: { value } }) => {
                 if (value) {
                   updateBasketItem({
-                    basketItemId,
+                    basketItemId: id,
                     size: value,
                   });
                 }
@@ -82,7 +82,7 @@ const CustomCard = ({
                     size,
                     imageUrl,
                     productId,
-                    basketItemId,
+                    basketItemId: id,
                     quantity: Number(value),
                   });
                 }
@@ -103,7 +103,7 @@ const CustomCard = ({
           onClick={(e) => {
             e.stopPropagation();
             removeFromBasket({
-              basketItemId,
+              basketItemId: id,
               productId,
               price,
               color,
