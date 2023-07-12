@@ -35,6 +35,7 @@ function App() {
               path="/basket"
               element={
                 <Basket
+                  token={jwt}
                   basket={basket}
                   updateBasketItem={updateBasketItem}
                   removeFromBasket={removeFromBasket}

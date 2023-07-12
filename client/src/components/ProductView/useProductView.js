@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
 
-const getQuery = (key, search) => {
+export const getQuery = (key, search) => {
   const querys = search?.replace("?", "")?.split("&");
   const query = querys.find((query) => query.includes(key));
   const queryValue = query?.replace(`${key}=`, "");

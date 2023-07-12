@@ -2,8 +2,9 @@ import React from "react";
 import { Row, Col, Button } from "reactstrap";
 import { useNavigate } from "react-router-dom";
 import CustomCard from "./Card";
+import Checkout from "../checkout";
 
-const Basket = ({ basket, updateBasketItem, removeFromBasket }) => {
+const Basket = ({ basket, token, updateBasketItem, removeFromBasket }) => {
   const navigate = useNavigate();
   const navigateToProductView = (url) => {
     navigate(url);
@@ -41,11 +42,7 @@ const Basket = ({ basket, updateBasketItem, removeFromBasket }) => {
             </Col>
           ))}
         </Row>
-        {basket.length ? (
-          <Button color="info" onClick={() => {}}>
-            Check out
-          </Button>
-        ) : null}
+        {basket.length ? <Checkout products={basket} token={token} /> : null}
       </div>
       {!basket.length ? (
         <div className="empty-basket">

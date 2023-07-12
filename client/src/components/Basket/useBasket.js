@@ -1,28 +1,67 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { toast } from "react-toastify";
+import { getQuery } from "../ProductView/useProductView";
 
 const useBasket = (token) => {
   const [basket, setBasket] = useState([]);
   const [updateBasket, setUpdateBasket] = useState(false);
-
-  const getBasketData = async () => {
-    try {
-      const {
-        data: { data },
-      } = await axios.get(`http://localhost:1337/api/baskets`);
-      setUpdateBasket(false);
-      const basketData = data?.map((item) => ({
-        ...item.attributes,
-        basketItemId: item.id,
-      }));
-      setBasket(basketData);
-    } catch (error) {
-      console.log({ error });
-    }
-  };
+  const { search } = window.location;
 
   useEffect(() => {
+    if (!!token) {
+      if (getQuery("success", search) === "true") {
+        const deleteBasket = async () => {
+          try {
+            await axios.delete(`http://localhost:1337/api/baskets/fakeId`, {
+              headers: {
+                Authorization: `bearer ${token}`,
+              },
+            });
+            toast.success(
+              "Order placed! You will receive an email confirmation.",
+              {
+                hideProgressBar: true,
+              }
+            );
+          } catch (error) {
+            console.log({ error });
+          }
+        };
+        deleteBasket();
+      }
+    }
+    if (!token) {
+      if (getQuery("success", search) === "true") {
+        toast.success("Order placed! You will receive an email confirmation.", {
+          hideProgressBar: true,
+        });
+        setBasket([]);
+      }
+    }
+    if (getQuery("cancel", search) === "true") {
+      toast.error("Payment is canceled!", {
+        hideProgressBar: true,
+      });
+    }
+  }, [search, token]);
+
+  useEffect(() => {
+    const getBasketData = async () => {
+      try {
+        const {
+          data: { data },
+        } = await axios.get(`http://localhost:1337/api/baskets`, {
+          headers: {
+            Authorization: `bearer ${token}`,
+          },
+        });
+        setUpdateBasket(false);
+        setBasket(data);
+      } catch (error) {
+        console.log({ error });
+      }
+    };
     if (!!token) {
       getBasketData();
     }
