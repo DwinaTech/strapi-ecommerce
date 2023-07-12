@@ -53,8 +53,13 @@ const CustomCard = ({
               onChange={({ target: { value } }) => {
                 if (value) {
                   updateBasketItem({
-                    basketItemId: id,
+                    index,
+                    color,
                     size: value,
+                    imageUrl,
+                    productId,
+                    basketItemId: id,
+                    quantity,
                   });
                 }
               }}
