@@ -9,8 +9,8 @@ import {
   CardText,
 } from "reactstrap";
 
-const Product = ({ product }) => {
-  const image = product.attributes.images.data[0].attributes;
+const Product = ({ product, orderCard }) => {
+  const image = orderCard ? {} : product.attributes.images.data[0].attributes;
 
   return (
     <Card className="product-card">
@@ -18,15 +18,28 @@ const Product = ({ product }) => {
         <CardImg
           top
           width="100%"
-          src={`http://localhost:1337${image.url}`}
-          alt={image.name}
+          src={`http://localhost:1337${
+            orderCard ? product.imageUrl : image.url
+          }`}
+          alt={orderCard ? product.name : image.name}
         />
       </div>
       <CardBody>
-        <CardTitle>{product.attributes.name}</CardTitle>
-        <CardText>{product.attributes.description}</CardText>
+        <CardTitle>
+          {orderCard ? product.name : product.attributes.name}
+        </CardTitle>
+        <CardText>
+          {orderCard ? product.description : product.attributes.description}
+        </CardText>
+        {orderCard ? (
+          <CardSubtitle className="qunatity">
+            <strong>Quantity: {product.quantity}</strong>
+          </CardSubtitle>
+        ) : null}
         <CardSubtitle>
-          <strong>Price: £{product.attributes.price}</strong>
+          <strong>
+            Price: £{orderCard ? product.price : product.attributes.price}
+          </strong>
         </CardSubtitle>
       </CardBody>
     </Card>

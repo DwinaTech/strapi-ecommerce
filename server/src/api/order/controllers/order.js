@@ -55,4 +55,16 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
       return { error };
     }
   },
+  async find(ctx) {
+    const { email } = ctx.state.user;
+    try {
+      const data = await strapi.db.query("api::order.order").findMany({
+        where: { email },
+      });
+      return { data };
+    } catch (error) {
+      ctx.response.status = 500;
+      return error;
+    }
+  },
 }));

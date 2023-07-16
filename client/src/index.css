@@ -100,6 +100,10 @@ code {
   color: #696969;
 }
 
+.product-card .qunatity {
+  margin-bottom: 10px;
+}
+
 @media (max-width: 767px) {
   .product-card {
     margin-bottom: 15px;
@@ -253,4 +257,18 @@ code {
   margin-top: 15px;
 }
 
+/* End */
+
+/* Orders */
+.orders {
+  margin: 20px 0;
+}
+
+.orders h3 {
+  margin-bottom: 15px;
+}
+
+.orders h3 {
+  margin-top: 15px;
+}
 /* End */

@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import { getQuery } from "../ProductView/useProductView";
 
-const useBasket = (token) => {
+const useBasket = (token, setIsNewOrdersAdded) => {
   const [basket, setBasket] = useState([]);
   const [updateBasket, setUpdateBasket] = useState(false);
   const { search } = window.location;
@@ -29,6 +29,7 @@ const useBasket = (token) => {
           }
         };
         deleteBasket();
+        setIsNewOrdersAdded(true);
       }
     }
     if (!token) {

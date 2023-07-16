@@ -27,5 +27,5 @@ export const Protector = ({ Component }) => {
     }
   }, [navigate, jwt]);
 
-  return <Component />;
+  return Component;
 };
