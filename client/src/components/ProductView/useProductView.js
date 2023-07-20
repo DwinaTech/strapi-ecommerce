@@ -11,6 +11,8 @@ export const getQuery = (key, search) => {
 
 export const useProductView = () => {
   const { id: productId } = useParams();
+  const [rating, setRating] = useState(null);
+  const [getLatestProductUpdate, setgetLatestProductUpdate] = useState(false);
   const { search } = useLocation();
 
   const [product, setProduct] = useState({});
@@ -48,6 +50,7 @@ export const useProductView = () => {
           `http://localhost:1337/api/products/${productId}?populate=*`
         );
         setProduct(data);
+        setgetLatestProductUpdate(false);
       } catch (error) {
         console.log({ error });
       }
@@ -56,16 +59,19 @@ export const useProductView = () => {
     if (productId) {
       fetchCategories();
     }
-  }, [productId]);
+  }, [productId, getLatestProductUpdate]);
 
   return {
+    rating,
     product,
     getImage,
+    setRating,
     selectedSize,
     selectedColor,
     selectedQuantity,
     setSelectedColor,
     setSelectedSize,
     handleQuantityChange,
+    setgetLatestProductUpdate,
   };
 };

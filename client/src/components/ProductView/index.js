@@ -13,11 +13,15 @@ import {
   FormGroup,
   CardSubtitle,
 } from "reactstrap";
+import ProductReview from "../ProductReview";
+import { Rating } from "react-simple-star-rating";
 
-const ProductView = ({ addToBasket }) => {
+const ProductView = ({ token, addToBasket }) => {
   const {
+    rating,
     product,
     getImage,
+    setRating,
     description,
     selectedColor,
     selectedSize,
@@ -25,11 +29,12 @@ const ProductView = ({ addToBasket }) => {
     setSelectedColor,
     setSelectedSize,
     handleQuantityChange,
+    setgetLatestProductUpdate,
   } = useProductView();
   if (!product || !product.attributes) {
     return null;
   }
-  const { attributes } = product;
+  const { id, attributes } = product;
   const quantity = Array.from(Array(Number(attributes.quantity)).keys());
 
   return (
@@ -49,6 +54,7 @@ const ProductView = ({ addToBasket }) => {
           <CardBody>
             <CardTitle>{attributes.name}</CardTitle>
             <CardText>{attributes.description}</CardText>
+            <Rating allowFraction readonly size={24} initialValue={rating} />
             <CardSubtitle>
               <strong>Price: £{attributes.price}</strong>
             </CardSubtitle>
@@ -118,6 +124,13 @@ const ProductView = ({ addToBasket }) => {
           </CardBody>
         </Col>
       </Row>
+
+      <ProductReview
+        token={token}
+        productId={id}
+        setRating={setRating}
+        setgetLatestProductUpdate={setgetLatestProductUpdate}
+      />
     </div>
   );
 };

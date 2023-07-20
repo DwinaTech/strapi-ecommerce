@@ -33,7 +33,7 @@ function App() {
             <Route path="/logout" element={<Logout />} />
             <Route
               path="/product-details/:id"
-              element={<ProductView addToBasket={addToBasket} />}
+              element={<ProductView token={jwt} addToBasket={addToBasket} />}
             />
             <Route path="/registration" element={<Registration />} />
             <Route

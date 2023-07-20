@@ -138,6 +138,11 @@ code {
   margin-bottom: 10px;
 }
 
+.product-details .card-body > span {
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
 .product-details .sizes {
   display: flex;
   flex-direction: row;
@@ -270,5 +275,40 @@ code {
 
 .orders h3 {
   margin-top: 15px;
+}
+/* End */
+
+/* Reviews */
+.product-reviews {
+  margin: 20px 0;
+}
+
+.product-reviews .reviews {
+  margin-top: 15px;
+}
+
+.product-reviews .reviews h2 {
+  margin-bottom: 15px;
+}
+
+.product-reviews .reviews .review {
+  margin-bottom: 20px;
+}
+
+.product-reviews .customer {
+  display: flex;
+  align-items: center;
+}
+
+.product-reviews .reviews p {
+  margin-bottom: 5px;
+}
+
+.product-reviews .customer .icon {
+  color: #fff;
+  font-size: 30px;
+  border-radius: 50%;
+  margin-right: 10px;
+  background-color: #a7b5b4;
 }
 /* End */
