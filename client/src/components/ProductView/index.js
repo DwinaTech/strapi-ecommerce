@@ -54,7 +54,19 @@ const ProductView = ({ token, addToBasket }) => {
           <CardBody>
             <CardTitle>{attributes.name}</CardTitle>
             <CardText>{attributes.description}</CardText>
-            <Rating allowFraction readonly size={24} initialValue={rating} />
+            <div className="rating">
+              <Rating
+                allowFraction
+                readonly
+                size={24}
+                initialValue={rating.stars}
+              />
+              <span>{`${
+                rating.count > 1
+                  ? `${rating.count} ratings`
+                  : `${rating.count} rating`
+              }`}</span>
+            </div>
             <CardSubtitle>
               <strong>Price: £{attributes.price}</strong>
             </CardSubtitle>

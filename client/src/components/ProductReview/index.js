@@ -46,7 +46,7 @@ const ProductReview = ({
         averageRating = Number(
           averageRating > 0 ? averageRating.toFixed(1) : averageRating
         );
-        setRating(averageRating);
+        setRating({ stars: averageRating, count: data.length });
         setReviews(data);
         setIsReviewAdded(hasReviewAdded);
         setUpdateReviews(false);

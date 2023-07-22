@@ -11,7 +11,7 @@ export const getQuery = (key, search) => {
 
 export const useProductView = () => {
   const { id: productId } = useParams();
-  const [rating, setRating] = useState(null);
+  const [rating, setRating] = useState({ stars: null, count: 0 });
   const [getLatestProductUpdate, setgetLatestProductUpdate] = useState(false);
   const { search } = useLocation();
 

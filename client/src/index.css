@@ -143,6 +143,16 @@ code {
   margin-bottom: 10px;
 }
 
+.product-details .rating {
+  display: flex;
+  margin-bottom: 10px;
+  align-items: center;
+}
+
+.product-details .rating > span {
+  margin-right: 10px;
+}
+
 .product-details .sizes {
   display: flex;
   flex-direction: row;
