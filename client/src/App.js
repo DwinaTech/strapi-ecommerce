@@ -14,7 +14,7 @@ import Orders from "./components/Orders";
 import useOrders from "./components/Orders/useOrders";
 
 function App() {
-  const { jwt } = userData();
+  const { jwt, username } = userData();
   const isLoggedIn = !!jwt;
   const { orders, setIsNewOrdersAdded } = useOrders(jwt);
   const { basket, addToBasket, updateBasketItem, removeFromBasket } = useBasket(
@@ -25,7 +25,11 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-        <CustomNav basketItems={basket.length} isLoggedIn={isLoggedIn} />
+        <CustomNav
+          basketItems={basket.length}
+          isLoggedIn={isLoggedIn}
+          username={username}
+        />
         <Container>
           <Routes>
             <Route path="/" element={<Home />} />
