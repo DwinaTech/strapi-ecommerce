@@ -16,7 +16,7 @@ const useOrders = (token) => {
           },
         });
         setIsNewOrdersAdded(false);
-        setOrders(data);
+        setOrders(data.reverse());
       } catch (error) {
         console.log({ error });
       }
