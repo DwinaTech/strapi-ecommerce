@@ -32,12 +32,13 @@ module.exports = createCoreController("api::review.review", ({ strapi }) => ({
     }
   },
   async create(ctx) {
-    const { email } = ctx.state.user;
+    const { email, username } = ctx.state.user;
     try {
       const res = await strapi.service("api::review.review").create({
         data: {
           ...ctx.request.body,
           email,
+          username,
         },
       });
 

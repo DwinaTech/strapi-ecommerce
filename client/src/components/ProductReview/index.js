@@ -47,7 +47,7 @@ const ProductReview = ({
           averageRating > 0 ? averageRating.toFixed(1) : averageRating
         );
         setRating({ stars: averageRating, count: data.length });
-        setReviews(data);
+        setReviews(data.reverse());
         setIsReviewAdded(hasReviewAdded);
         setUpdateReviews(false);
         setgetLatestProductUpdate(true);
@@ -129,11 +129,11 @@ const ProductReview = ({
       {reviews.length ? (
         <div className="reviews">
           <h2>Customer reviews:</h2>
-          {reviews.map(({ text, stars, createdAt }) => (
+          {reviews.map(({ text, stars, username, createdAt }) => (
             <div className="review">
               <div className="customer">
                 <IoPersonCircleOutline className="icon" />
-                <span>Customer name</span>
+                <span>{username}</span>
               </div>
               <Rating size={24} readonly initialValue={stars} />
               <p>Reviewed at: {new Date(createdAt).toLocaleDateString()}</p>

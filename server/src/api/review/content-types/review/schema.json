@@ -26,6 +26,10 @@
     },
     "stars": {
       "type": "biginteger"
+    },
+    "username": {
+      "type": "string",
+      "required": true
     }
   }
 }
