@@ -14,7 +14,7 @@ import {
 } from "reactstrap";
 import { Link } from "react-router-dom";
 import { FaShoppingBasket } from "react-icons/fa";
-const CustomNav = ({ basketItems, isLoggedIn }) => {
+const CustomNav = ({ basketItems, isLoggedIn, username }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
@@ -41,7 +41,7 @@ const CustomNav = ({ basketItems, isLoggedIn }) => {
               {isLoggedIn ? (
                 <>
                   <DropdownToggle nav caret>
-                    John account
+                    {username} account
                   </DropdownToggle>
                   <DropdownMenu end>
                     <DropdownItem>Your account</DropdownItem>
