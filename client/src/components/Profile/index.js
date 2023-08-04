@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { IoPersonCircleOutline } from "react-icons/io5";
 import UpoloadAvatar from "./UploadAvatar";
 
@@ -46,9 +46,11 @@ const Profile = ({ token }) => {
         </div>
       </div>
       <div className="body">
-        <p>Name: Ali</p>
-        <p>Email: Email@gmail.com</p>
-        <p>Account created at: 01/01/2023</p>
+        <p>Name: {user.username}</p>
+        <p>Email: {user.email}</p>
+        <p>
+          Account created at: {new Date(user.createdAt).toLocaleDateString()}
+        </p>
       </div>
     </div>
   );

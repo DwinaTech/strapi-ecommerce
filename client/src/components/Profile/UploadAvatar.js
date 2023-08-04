@@ -2,20 +2,20 @@ import axios from "axios";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 import {
+  Form,
   Button,
+  FormGroup,
+  Input,
+  Label,
   Modal,
-  ModalHeader,
   ModalBody,
   ModalFooter,
-  Form,
-  FormGroup,
-  Label,
-  Input,
+  ModalHeader,
 } from "reactstrap";
 
 const UpoloadAvatar = ({
-  token,
   userId,
+  token,
   username,
   avatarUrl,
   setisUserUpdated,
@@ -33,7 +33,7 @@ const UpoloadAvatar = ({
       if (type === "image/png" || type === "image/jpeg") {
         setFile(files[0]);
       } else {
-        toast.error("Accept only png and jpeg image types*", {
+        toast.error("Accept only png and jpeg image types are allowed*", {
           hideProgressBar: true,
         });
       }
@@ -65,10 +65,12 @@ const UpoloadAvatar = ({
       });
       return;
     }
+
     try {
       const files = new FormData();
       files.append("files", file);
       files.append("name", `${username} avatar`);
+
       const {
         data: [{ id, url }],
       } = await axios.post(`http://localhost:1337/api/upload`, files, {
@@ -91,7 +93,9 @@ const UpoloadAvatar = ({
         {`${avatarUrl ? "Change" : "Upload"} picture`}
       </Button>
       <Modal isOpen={modal} toggle={toggle}>
-        <ModalHeader toggle={toggle}>Upload you avatar</ModalHeader>
+        <ModalHeader toggle={toggle}>{`${
+          avatarUrl ? "Change" : "Upload"
+        } your avatar`}</ModalHeader>
         <ModalBody>
           <Form>
             <FormGroup>
@@ -108,7 +112,7 @@ const UpoloadAvatar = ({
         <ModalFooter>
           <Button color="primary" onClick={handleSubmit}>
             Upload
-          </Button>{" "}
+          </Button>
           <Button color="secondary" onClick={toggle}>
             Cancel
           </Button>
