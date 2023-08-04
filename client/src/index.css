@@ -322,3 +322,67 @@ code {
   background-color: #a7b5b4;
 }
 /* End */
+
+/* Profile */
+.profile {
+  margin: 20px 0;
+  display: flex;
+  padding: 20px;
+  align-items: center;
+  border-radius: 15px;
+  box-shadow: 3px 10px 15px hsl(0deg 0% 0% / 0.31);
+}
+.profile .avatar {
+  width: 125px;
+  height: 125px;
+  margin-right: 15px;
+  margin-bottom: 10px;
+}
+
+.profile .avatar img {
+  width: 100%;
+  height: 125px;
+  border-radius: 100%;
+  border: solid 4px #070707;
+}
+
+.profile .body {
+  text-align: left;
+}
+
+.profile .avatar .avatar-wrapper {
+  position: relative;
+}
+
+.profile .avatar > div > div {
+  display: flex;
+  justify-content: center;
+}
+
+.profile .avatar .avatar-wrapper button {
+  bottom: 12px;
+  display: none;
+  position: absolute;
+  background-color: #070707;
+  border: 1px solid #070707;
+}
+
+.profile .avatar .avatar-wrapper:hover button {
+  display: block;
+}
+
+.profile .avatar svg {
+  font-size: 125px;
+}
+
+.profile p {
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+  .profile {
+    flex-direction: column;
+  }
+}
+/* End */

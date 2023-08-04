@@ -12,6 +12,7 @@ import useBasket from "./components/Basket/useBasket";
 import { Protector, userData } from "./helpers";
 import Orders from "./components/Orders";
 import useOrders from "./components/Orders/useOrders";
+import Profile from "./components/Profile";
 
 function App() {
   const { jwt, username } = userData();
@@ -43,6 +44,10 @@ function App() {
             <Route
               path="/orders"
               element={<Protector Component={<Orders orders={orders} />} />}
+            />
+            <Route
+              path="/profile"
+              element={<Protector Component={<Profile token={jwt} />} />}
             />
             <Route
               path="/basket"
