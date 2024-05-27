@@ -16,6 +16,8 @@
     "@vscode/sqlite3": "^5.1.6-vscode",
     "better-sqlite3": "7.4.6",
     "crypto": "^1.0.1",
+    "pg": "^8.11.5",
+    "pg-connection-string": "^2.6.4",
     "stripe": "^12.12.0"
   },
   "author": {
